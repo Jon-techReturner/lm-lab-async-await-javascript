@@ -7,6 +7,20 @@ const fetchData = (apiEndPoint) => {
     .then((response) => response.json())
     .then((json) => console.log(json))
     .catch((error) => console.log(error));
+
 };
 
-fetchData(jsonTypicode);
+// fetchData(jsonTypicode);
+
+async function fetchApiData(){
+  try{
+  const response = await fetch(jsonTypicode);
+  const userData = await response.json();
+  console.log(`This is the result: `, userData);
+  }catch(userData){
+    console.error(userData);
+  }
+};
+fetchApiData();
+
+console.log("A print statement after the request has been defined");
